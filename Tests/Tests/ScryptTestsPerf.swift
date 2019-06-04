@@ -13,14 +13,27 @@
 //  - This notice may not be removed or altered from any source or binary distribution.
 //
 
-/// Random access cryptor
-public protocol Cryptor { }
 
-public protocol RandomAccessCryptor: Cryptor {
-    /// Seek to position in file, if block mode allows random access.
-    ///
-    /// - parameter to: new value of counter
-    ///
-    /// - returns: true if seek succeed
-    @discardableResult mutating func seek(to: Int) -> Bool
+@testable import CryptoSwift
+import XCTest
+
+class ScryptTestsPeft: XCTestCase {
+    func testScryptPerformance() {
+        let N = 16384
+        let password: Array<UInt8> = Array<UInt8>(repeating: 0, count: 32)
+        let salt: Array<UInt8> = Array<UInt8>(repeating: 0, count: 32)
+        measure {
+            _ = try! CryptoSwift.Scrypt(password: password, salt: salt, dkLen: 64, N: N, r: 8, p: 1).calculate()
+        }
+    }
+    
+}
+
+extension ScryptTestsPeft {
+    static func allTests() -> [(String, (ScryptTestsPeft) -> () -> Void)] {
+        let tests = [
+            ("testScryptPerformance", testScryptPerformance),
+            ]
+        return tests
+    }
 }
