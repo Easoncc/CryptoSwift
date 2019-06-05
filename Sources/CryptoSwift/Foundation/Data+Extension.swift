@@ -28,55 +28,55 @@ extension Data {
     }
 
     public func md5() -> Data {
-        return Data(bytes: Digest.md5(cyptoBytes))
+        return Data(_: Digest.md5(cyptoBytes))
     }
 
     public func sha1() -> Data {
-        return Data(bytes: Digest.sha1(cyptoBytes))
+        return Data(_: Digest.sha1(cyptoBytes))
     }
 
     public func sha224() -> Data {
-        return Data(bytes: Digest.sha224(cyptoBytes))
+        return Data(_: Digest.sha224(cyptoBytes))
     }
 
     public func sha256() -> Data {
-        return Data(bytes: Digest.sha256(cyptoBytes))
+        return Data(_: Digest.sha256(cyptoBytes))
     }
 
     public func sha384() -> Data {
-        return Data(bytes: Digest.sha384(cyptoBytes))
+        return Data(_: Digest.sha384(cyptoBytes))
     }
 
     public func sha512() -> Data {
-        return Data(bytes: Digest.sha512(cyptoBytes))
+        return Data(_: Digest.sha512(cyptoBytes))
     }
 
     public func sha3(_ variant: SHA3.Variant) -> Data {
-        return Data(bytes: Digest.sha3(cyptoBytes, variant: variant))
+        return Data(_: Digest.sha3(cyptoBytes, variant: variant))
     }
 
     public func crc32(seed: UInt32? = nil, reflect: Bool = true) -> Data {
-        return Data(bytes: Checksum.crc32(cyptoBytes, seed: seed, reflect: reflect).bytes())
+        return Data(_: Checksum.crc32(cyptoBytes, seed: seed, reflect: reflect).bytes())
     }
 
     public func crc32c(seed: UInt32? = nil, reflect: Bool = true) -> Data {
-        return Data(bytes: Checksum.crc32c(cyptoBytes, seed: seed, reflect: reflect).bytes())
+        return Data(_: Checksum.crc32c(cyptoBytes, seed: seed, reflect: reflect).bytes())
     }
 
     public func crc16(seed: UInt16? = nil) -> Data {
-        return Data(bytes: Checksum.crc16(cyptoBytes, seed: seed).bytes())
+        return Data(_: Checksum.crc16(cyptoBytes, seed: seed).bytes())
     }
 
     public func encrypt(cipher: Cipher) throws -> Data {
-        return Data(bytes: try cipher.encrypt(cyptoBytes.slice))
+        return Data(_: try cipher.encrypt(cyptoBytes.slice))
     }
 
     public func decrypt(cipher: Cipher) throws -> Data {
-        return Data(bytes: try cipher.decrypt(cyptoBytes.slice))
+        return Data(_: try cipher.decrypt(cyptoBytes.slice))
     }
 
     public func authenticate(with authenticator: Authenticator) throws -> Data {
-        return Data(bytes: try authenticator.authenticate(cyptoBytes))
+        return Data(_: try authenticator.authenticate(cyptoBytes))
     }
 }
 
