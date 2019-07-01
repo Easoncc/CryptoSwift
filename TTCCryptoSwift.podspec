@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = "Cryptography functions and helpers for Swift implemented in Swift. SHA-1, SHA-2, SHA-3, MD5, PBKDF1, PBKDF2, Scrypt, CRC, Poly1305, HMAC, ChaCha20, Rabbit, Blowfish, AES"
   s.homepage     = "https://github.com/Easoncc/CryptoSwift"
   s.license      = {:type => "Attribution", :file => "LICENSE"}
-  s.authors      = {'Marcin Krzyżanowski' => 'TTC'}
+  s.authors      = {'TTC' => 'TTC'}
   s.social_media_url = "https://twitter.com/TTC"
   s.cocoapods_version = '>= 1.4.0'
   s.swift_version = "4.2"
